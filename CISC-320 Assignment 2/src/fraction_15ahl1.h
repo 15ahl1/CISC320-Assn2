@@ -24,6 +24,9 @@ public:
 	int numerator() const;
 	int denominator() const;
 	Fraction reduce(Fraction f);
+	friend Fraction& operator++();	//Pre
+	friend Fraction operator++(int unused); //Post
+
 
 private:
 	int n;

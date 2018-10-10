@@ -105,6 +105,13 @@ Fraction operator-(const Fraction& a){
 	return Fraction(-a.numerator(), a.denominator());
 }
 
+friend Fraction& operator++(){	//Pre
+
+}
+friend Fraction operator++(int unused){	//Post
+
+}
+
 ostream& operator<<(ostream& out, const Fraction& f){
 	out << f.numerator() << "/" << f.denominator();
 	return out;

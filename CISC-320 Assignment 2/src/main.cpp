@@ -51,7 +51,7 @@ int main() {
 
 	// Test unary negation
 	cout << "Should be \"-1/6\": " << -test7 << endl;
-/*
+
 	// Test pre and post-increment operators
 	Fraction test14 = 2 + test3++;
 	cout << "Should be \"8/3\": " << test14 << endl;
@@ -60,6 +60,7 @@ int main() {
 	cout << "Should be \"14/3\": " << test15 << endl;
 	cout << "Should be \"8/3\": " << test3 << endl;
 
+/*
 	// Test += operator
 	Fraction test16(3, 8);
 	test16 += test3;
