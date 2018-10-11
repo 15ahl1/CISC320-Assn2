@@ -24,9 +24,16 @@ public:
 	int numerator() const;
 	int denominator() const;
 	Fraction reduce(Fraction f);
-	friend Fraction& operator++();	//Pre
-	friend Fraction operator++(int unused); //Post
-
+	Fraction& operator++();	//Pre
+	Fraction operator++(int); //Post
+	Fraction& operator+=(Fraction& f);
+	friend int compareTo(const Fraction& f);
+	friend bool operator==(const Fraction a, const Fraction b);
+	friend bool operator!=(const Fraction a, const Fraction b);
+	friend bool operator>(const Fraction a, const Fraction b);
+	friend bool operator<(const Fraction a, const Fraction b);
+	friend bool operator>=(const Fraction a, const Fraction b);
+	friend bool operator<=(const Fraction a, const Fraction b);
 
 private:
 	int n;
@@ -38,6 +45,8 @@ Fraction operator-(const Fraction& a, const Fraction& b);
 Fraction operator*(const Fraction& a, const Fraction& b);
 Fraction operator/(const Fraction& a, const Fraction& b);
 Fraction operator-(const Fraction& a);
+
+
 
 ostream& operator<<(ostream& out, const Fraction& f);
 

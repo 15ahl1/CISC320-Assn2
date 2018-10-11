@@ -105,11 +105,64 @@ Fraction operator-(const Fraction& a){
 	return Fraction(-a.numerator(), a.denominator());
 }
 
-friend Fraction& operator++(){	//Pre
-
+Fraction& Fraction::operator++(){	//Pre
+	n += d;
+	return *this;
 }
-friend Fraction operator++(int unused){	//Post
 
+Fraction Fraction::operator++(int unused){	//Post
+	Fraction out(n, d);
+	n += d;
+	return out;
+}
+
+Fraction& Fraction::operator+=(Fraction& f){
+	*this = *this + f;
+	return *this;
+}
+
+int compareTo(const Fraction& x, const Fraction& y){
+	double a, b;
+	a = x.numerator() / x.denominator();
+	b = y.numerator() / y.denominator();
+
+	if(a < b)
+		return -1;
+	if(a > b)
+		return 1;
+	return 0;
+}
+
+
+bool operator==(const Fraction a, const Fraction b){
+	if(compareTo(a, b) == 0)
+		return true;
+	return false;
+}
+bool operator!=(const Fraction a, const Fraction b){
+	if(compareTo(a, b) != 0)
+		return true;
+	return false;
+}
+bool operator>(const Fraction a, const Fraction b){
+	if(compareTo(a, b) > 0)
+		return true;
+	return false;
+}
+bool operator<(const Fraction a, const Fraction b){
+	if(compareTo(a, b) < 0)
+		return true;
+	return false;
+}
+bool operator>=(const Fraction a, const Fraction b){
+	if(compareTo(a, b) >= 0)
+		return true;
+	return false;
+}
+bool operator<=(const Fraction a, const Fraction b){
+	if(compareTo(a, b) <= 0)
+		return true;
+	return false;
 }
 
 ostream& operator<<(ostream& out, const Fraction& f){

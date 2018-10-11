@@ -60,7 +60,7 @@ int main() {
 	cout << "Should be \"14/3\": " << test15 << endl;
 	cout << "Should be \"8/3\": " << test3 << endl;
 
-/*
+
 	// Test += operator
 	Fraction test16(3, 8);
 	test16 += test3;
@@ -73,6 +73,7 @@ int main() {
 		cout << "Equality test passed." << endl;
 	if (test6 != test7)
 		cout << "Inequality test passed." << endl;
+
 	if (test6 > test7 && test6 >= test7)
 		cout << "Greater than test passed." << endl;
 	if (test7 < test6 && test7 <= test6)
@@ -81,6 +82,7 @@ int main() {
 		cout << "Mixed type comparison passed." << endl;
 	if (1 < test6)
 		cout << "Second mixed type comparison passed." << endl;
+/*
 
 	// Test input, exception and +=:
 	Fraction sum(0);
