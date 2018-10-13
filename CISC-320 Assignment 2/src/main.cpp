@@ -82,7 +82,7 @@ int main() {
 		cout << "Mixed type comparison passed." << endl;
 	if (1 < test6)
 		cout << "Second mixed type comparison passed." << endl;
-/*
+
 
 	// Test input, exception and +=:
 	Fraction sum(0);
@@ -99,7 +99,7 @@ int main() {
 		}
 	} while (fin != 0);
 	cout << "Sum is: " << sum << endl;
-*/
+
 	return 0;
 
 } // end main

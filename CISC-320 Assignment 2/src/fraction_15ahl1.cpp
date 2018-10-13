@@ -1,8 +1,9 @@
 /*
- * fraction15ahl1.cpp
- *
- *  Created on: Oct 9, 2018
- *      Author: Alastair
+Alastair Lewis
+20016877
+CMPE/CISC-320
+Assignment 2
+Operator Overloading
  */
 
 #include "fraction_15ahl1.h"
@@ -120,11 +121,15 @@ Fraction& Fraction::operator+=(Fraction& f){
 	*this = *this + f;
 	return *this;
 }
-
 int compareTo(const Fraction& x, const Fraction& y){
-	double a, b;
-	a = x.numerator() / x.denominator();
-	b = y.numerator() / y.denominator();
+
+	double a, b, xnum, xden, ynum, yden;
+	xnum = x.numerator();
+	xden = x.denominator();
+	ynum = y.numerator();
+	yden = y.denominator();
+	a = xnum / xden;
+	b = ynum / yden;
 
 	if(a < b)
 		return -1;
@@ -132,8 +137,6 @@ int compareTo(const Fraction& x, const Fraction& y){
 		return 1;
 	return 0;
 }
-
-
 bool operator==(const Fraction a, const Fraction b){
 	if(compareTo(a, b) == 0)
 		return true;
@@ -164,10 +167,33 @@ bool operator<=(const Fraction a, const Fraction b){
 		return true;
 	return false;
 }
-
+int findChar(string s, char target){
+	unsigned int i;
+	for(i = 0; i < s.length(); i++){
+		if(s[i] == target)
+			return i;
+	}
+	return -1;
+}
 ostream& operator<<(ostream& out, const Fraction& f){
 	out << f.numerator() << "/" << f.denominator();
 	return out;
+}
+istream& operator>>(istream& in, Fraction& f){
+	string s;
+	in >> s;
+	int index = findChar(s, '/');
+	if(index != -1){
+		int a, b;
+		a = stoi(s.substr(0, index));
+		b = stoi(s.substr(index + 1, s.length()-1));
+		f.n = a;
+		f.d = b;
+		return in;
+	}
+	f.n = stoi(s);
+	f.d = 1;
+	return in;
 }
 
 

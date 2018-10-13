@@ -1,8 +1,9 @@
 /*
- * fraction15ahl1.h
- *
- *  Created on: Oct 9, 2018
- *      Author: Alastair
+Alastair Lewis
+20016877
+CMPE/CISC-320
+Assignment 2
+Operator Overloading
  */
 
 #ifndef FRACTION_15AHL1_H_
@@ -27,17 +28,21 @@ public:
 	Fraction& operator++();	//Pre
 	Fraction operator++(int); //Post
 	Fraction& operator+=(Fraction& f);
-	friend int compareTo(const Fraction& f);
+
+private:
+	int n;
+	int d;
+
+	//friend functions
+	friend int compareTo(const Fraction& a, const Fraction& b);
 	friend bool operator==(const Fraction a, const Fraction b);
 	friend bool operator!=(const Fraction a, const Fraction b);
 	friend bool operator>(const Fraction a, const Fraction b);
 	friend bool operator<(const Fraction a, const Fraction b);
 	friend bool operator>=(const Fraction a, const Fraction b);
 	friend bool operator<=(const Fraction a, const Fraction b);
+	friend istream& operator>>(istream& in, Fraction& f);
 
-private:
-	int n;
-	int d;
 };
 
 Fraction operator+(const Fraction& a, const Fraction& b);
@@ -46,10 +51,6 @@ Fraction operator*(const Fraction& a, const Fraction& b);
 Fraction operator/(const Fraction& a, const Fraction& b);
 Fraction operator-(const Fraction& a);
 
-
-
 ostream& operator<<(ostream& out, const Fraction& f);
-
-
-
+int findChar(string s, char t);
 #endif
